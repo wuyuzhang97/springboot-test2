@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.Source_goodsMapper" >
+  <resultMap id="BaseResultMap" type="com.example.pojo.Source_goods" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="order_no" property="order_no" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="SMALLINT" />
+    <result column="load_province" property="load_province" jdbcType="VARCHAR" />
+    <result column="load_city" property="load_city" jdbcType="VARCHAR" />
+    <result column="load_county" property="load_county" jdbcType="VARCHAR" />
+    <result column="load_detail_address" property="load_detail_address" jdbcType="VARCHAR" />
+    <result column="unload_province" property="unload_province" jdbcType="VARCHAR" />
+    <result column="unload_city" property="unload_city" jdbcType="VARCHAR" />
+    <result column="unload_county" property="unload_county" jdbcType="VARCHAR" />
+    <result column="unload_detail_address" property="unload_detail_address" jdbcType="VARCHAR" />
+    <result column="freight" property="freight" jdbcType="DECIMAL" />
+    <result column="subscribe_num" property="subscribe_num" jdbcType="INTEGER" />
+    <result column="call_num" property="call_num" jdbcType="INTEGER" />
+    <result column="browse_num" property="browse_num" jdbcType="INTEGER" />
+    <result column="has_img" property="has_img" jdbcType="TINYINT" />
+    <result column="release_date" property="release_date" jdbcType="TIMESTAMP" />
+    <result column="is_top" property="is_top" jdbcType="TINYINT" />
+    <result column="complain_num" property="complain_num" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="SMALLINT" />
+    <result column="complain_time" property="complain_time" jdbcType="TIMESTAMP" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="linkman" property="linkman" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="TINYINT" />
+    <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.pojo.Source_goods" >
+    insert into source_goods (id, order_no, type, 
+      load_province, load_city, load_county, 
+      load_detail_address, unload_province, unload_city, 
+      unload_county, unload_detail_address, freight, 
+      subscribe_num, call_num, browse_num, 
+      has_img, release_date, is_top, 
+      complain_num, status, complain_time, 
+      created, modified, linkman, 
+      mobile, openid, flag, 
+      remark)
+    values (#{id,jdbcType=BIGINT}, #{order_no,jdbcType=VARCHAR}, #{type,jdbcType=SMALLINT}, 
+      #{load_province,jdbcType=VARCHAR}, #{load_city,jdbcType=VARCHAR}, #{load_county,jdbcType=VARCHAR}, 
+      #{load_detail_address,jdbcType=VARCHAR}, #{unload_province,jdbcType=VARCHAR}, #{unload_city,jdbcType=VARCHAR}, 
+      #{unload_county,jdbcType=VARCHAR}, #{unload_detail_address,jdbcType=VARCHAR}, #{freight,jdbcType=DECIMAL}, 
+      #{subscribe_num,jdbcType=INTEGER}, #{call_num,jdbcType=INTEGER}, #{browse_num,jdbcType=INTEGER}, 
+      #{has_img,jdbcType=TINYINT}, #{release_date,jdbcType=TIMESTAMP}, #{is_top,jdbcType=TINYINT}, 
+      #{complain_num,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT}, #{complain_time,jdbcType=TIMESTAMP}, 
+      #{created,jdbcType=TIMESTAMP}, #{modified,jdbcType=TIMESTAMP}, #{linkman,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{flag,jdbcType=TINYINT}, 
+      #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, order_no, type, load_province, load_city, load_county, load_detail_address, 
+    unload_province, unload_city, unload_county, unload_detail_address, freight, subscribe_num, 
+    call_num, browse_num, has_img, release_date, is_top, complain_num, status, complain_time, 
+    created, modified, linkman, mobile, openid, flag, remark
+    from source_goods where status=0
+  </select>
+  <update id="delete">
+  	UPDATE source_goods SET status=1 WHERE id IN (${ids})
+  </update>
+  <update id="modify" parameterType="com.example.pojo.Source_goods">
+  	update source_goods
+		<trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+			<if test="type != null">type = #{type},</if>
+			<if test="load_province != null"> load_province = #{load_province},</if>
+			<if test="load_city != null">load_city = #{load_city},</if>
+			<if test="load_county != null"> load_county = #{load_county},</if>
+			<if test="load_detail_address != null"> load_detail_address = #{load_detail_address},</if>
+			<if test="unload_province != null"> unload_province = #{unload_province},</if>
+			<if test="unload_city != null"> unload_city = #{unload_city},</if>
+			<if test="unload_county != null"> unload_county = #{unload_county},</if>
+			<if test="unload_detail_address != null"> unload_detail_address = #{unload_detail_address},</if>
+			<if test="freight != null"> freight = #{freight},</if>
+			<if test="remark != null"> remark = #{remark},</if>
+			<if test="subscribe_num != null"> subscribe_num = #{subscribe_num},</if>
+			<if test="call_num != null"> call_num = #{call_num},</if>
+			<if test="has_img != null"> has_img = #{has_img},</if>
+			<if test="release_date != null"> release_date = #{release_date},</if>
+			<if test="is_top != null"> is_top = #{is_top},</if>
+			<if test="complain_num != null"> complain_num = #{complain_num},</if>
+			<if test="complain_time != null"> complain_time = #{complain_time},</if>
+			<if test="modified != null"> modified = #{modified},</if>
+			<if test="linkman != null"> linkman = #{linkman},</if>
+			<if test="mobile != null"> mobile = #{mobile},</if>
+			<if test="openid != null"> openid = #{openid},</if>
+			<if test="flag != null"> flag = #{flag},</if>
+		</trim>
+  </update>
+  <update id="updateStatus">
+ 		update source_goods set status=1 where id=#{id}
+  </update>
+</mapper>
