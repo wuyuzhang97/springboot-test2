@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import com.example.util.JackonUtil;
+import com.example.util.Mythread;
 
 @SpringBootTest
 class SpringbootTest2ApplicationTests {
@@ -35,6 +36,11 @@ class SpringbootTest2ApplicationTests {
 		for (int i : arrays) {
 			System.out.println(i);
 		}
+	}
+	@Test
+	public void test02() {
+		
+		
 	}
 	
 

@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
-<link rel="stylesheet" th:href="@{/css/dashboard.css}"/>
-<link rel="stylesheet" th:href="@{/css/signin.css}"/>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+<link rel="stylesheet" th:href="@{/css/signin.css}" />
 <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
 
 </head>
 <body>
-	<form th:action="@{/user/update}" method="post" class="navbar-form" >
-		
+	<form th:action="@{/user/update}" method="post" class="navbar-form">
+
 		<table class="table table-bordered" border="1px">
 			<tr>
 				<td><input type="hidden" name="id" th:value="${user.id}"></td>
@@ -25,8 +25,11 @@
 				<td>密码s</td>
 				<td><input th:value="${user.password}" name="password"></td>
 			</tr>
-			<tr><td colspan="2" align="center"><input type="submit" value="提交" class="btn btn-default"></td></tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="提交"
+					class="btn btn-default"></td>
+			</tr>
 		</table>
-	</form>	
+	</form>
 </body>
 </html>
